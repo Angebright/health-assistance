@@ -90,10 +90,11 @@ cd health-assistance
 
 ### 7.1 Prerequisites
 Two web servers:
-* **Web-01** and **Web-02**: 
-* **Load Balancer (lb-01)**: Runs **HAProxy**.
-    * Configured at `/etc/haproxy/haproxy.cfg`.
-    * Distributes incoming traffic between the two web servers.
+* **Web-01** and **Web-02**: (where nginx is installed, and I configured /etc/nginx/sites_available/default, this file is where I hosted my application for instance: I put all my files used to make application including; HTML, CSS, and JS, all were put inside this /var/www/html so that it can be accessed by visiting the IP_Address 
+
+* **Load Balancer (lb-01)**: Through lb-01 (where haproxy is installed to distribute the requests through those two servers. And those were done through configuring an haproxy config file ( /etc/haproxy/haproxy.cfg ), So you can access it through linking up to the IP_address of this lb-01)
+
+
 
 ### 7.2 Domain
 A domain used, was created from DotTech domain where I used to link up with the IP_Address so if you vist my domain you will get the same by visiting via IP_Address.
