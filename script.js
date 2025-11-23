@@ -1123,3 +1123,10 @@ function startOver() {
     }
 }
 
+// attach functions to window for inline onclick handlers to work with ES6 modules
+window.nextStep = nextStep;
+window.prevStep = prevStep;
+window.generateInsights = generateInsights;
+window.startOver = startOver;
+window.removeSymptom = removeSymptom;
+window.removeTag = removeTag;
