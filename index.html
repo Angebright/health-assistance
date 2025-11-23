@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediAssist Wellness Companion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">MediAssist Wellness Companion</h1>
+                <p class="tagline">Your personal wellness guide</p>
+            </div>
+        </header>
+
+        <!-- Progress Indicator -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Symptoms</div>
+                </div>
+                <div class="progress-step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Health Profile</div>
+                </div>
+                <div class="progress-step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Lifestyle</div>
+                </div>
+                <div class="progress-step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-label">Insights</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Step 1: Symptom Input -->
+            <section id="step1" class="step active">
+                <div class="step-header">
+                    <h2>Step 1: Symptom & Wellness Input</h2>
+                    <p>Select any symptoms you're experiencing. You can search for specific symptoms.</p>
+                </div>
+
+                <div class="search-container">
+                    <input type="text" id="symptomSearch" class="search-input" placeholder="Search symptoms...">
+                </div>
+
+                <div class="symptom-categories">
+                    <div class="category-section">
+                        <h3 class="category-title">Common Symptoms</h3>
+                        <div class="symptom-grid" id="symptomGrid">
+                            <!-- Symptoms will be dynamically generated -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="selected-symptoms" id="selectedSymptoms">
+                    <h3>Selected Symptoms:</h3>
+                    <div class="selected-tags" id="selectedTags"></div>
+                </div>
+
+                <div class="step-actions">
+                    <button class="btn btn-primary" onclick="nextStep()">Continue to Health Profile</button>
+                </div>
+            </section>
+
+            <!-- Step 2: Health Profile -->
+            <section id="step2" class="step">
+                <div class="step-header">
+                    <h2>Step 2: Personal Health & Lifestyle Profile</h2>
+                    <p>Help us understand your health background.</p>
+                </div>
+
+                <form id="healthProfileForm" class="health-form">
+                    <div class="form-section">
+                        <h3>Basic Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" name="age" min="1" max="120" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <select id="gender" name="gender" required>
+                                    <option value="">Select...</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                    <option value="prefer-not-to-say">Prefer not to say</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="height">Height (cm)</label>
+                                <input type="number" id="height" name="height" min="50" max="250" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="weight">Weight (kg)</label>
+                                <input type="number" id="weight" name="weight" min="10" max="300" step="0.1" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Medical History</h3>
+                        <div class="form-group">
+                            <label for="medicalHistory">Medical Conditions (comma-separated)</label>
+                            <input type="text" id="medicalHistory" name="medicalHistory" placeholder="e.g., Diabetes, Hypertension">
+                        </div>
+                        <div class="tag-input-container">
+                            <div id="medicalHistoryTags" class="tag-container"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Medications</h3>
+                        <div class="form-group">
+                            <label for="medications">Current Medications (comma-separated)</label>
+                            <input type="text" id="medications" name="medications" placeholder="e.g., Aspirin, Vitamin D">
+                        </div>
+                        <div class="tag-input-container">
+                            <div id="medicationTags" class="tag-container"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Allergies</h3>
+                        <div class="form-group">
+                            <label for="allergies">Known Allergies (comma-separated)</label>
+                            <input type="text" id="allergies" name="allergies" placeholder="e.g., Peanuts, Penicillin">
+                        </div>
+                        <div class="tag-input-container">
+                            <div id="allergyTags" class="tag-container"></div>
+                        </div>
+                    </div>
+
+                    <div class="step-actions">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
+                        <button type="button" class="btn btn-primary" onclick="nextStep()">Continue to Lifestyle</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Step 3: Lifestyle -->
+            <section id="step3" class="step">
+                <div class="step-header">
+                    <h2>Step 3: Lifestyle Information</h2>
+                    <p>Tell us about your daily habits and routines.</p>
+                </div>
+
+                <form id="lifestyleForm" class="health-form">
+                    <div class="form-section">
+                        <h3>Activity Level</h3>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="activityLevel" value="sedentary" required>
+                                <span>Sedentary (little to no exercise)</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="activityLevel" value="light">
+                                <span>Light (exercise 1-3 days/week)</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="activityLevel" value="moderate">
+                                <span>Moderate (exercise 3-5 days/week)</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="activityLevel" value="active">
+                                <span>Active (exercise 6-7 days/week)</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="activityLevel" value="very-active">
+                                <span>Very Active (intense exercise daily)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Sleep Patterns</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="sleepHours">Average Sleep Hours per Night</label>
+                                <input type="number" id="sleepHours" name="sleepHours" min="0" max="24" step="0.5" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="sleepQuality">Sleep Quality</label>
+                                <select id="sleepQuality" name="sleepQuality" required>
+                                    <option value="">Select...</option>
+                                    <option value="excellent">Excellent</option>
+                                    <option value="good">Good</option>
+                                    <option value="fair">Fair</option>
+                                    <option value="poor">Poor</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Diet Habits</h3>
+                        <div class="form-group">
+                            <label for="dietType">Diet Type</label>
+                            <select id="dietType" name="dietType" required>
+                                <option value="">Select...</option>
+                                <option value="omnivore">Omnivore</option>
+                                <option value="vegetarian">Vegetarian</option>
+                                <option value="vegan">Vegan</option>
+                                <option value="keto">Keto</option>
+                                <option value="paleo">Paleo</option>
+                                <option value="mediterranean">Mediterranean</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="waterIntake">Daily Water Intake (glasses)</label>
+                            <input type="number" id="waterIntake" name="waterIntake" min="0" max="20" required>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Stress Level</h3>
+                        <div class="form-group">
+                            <label for="stressLevel">Current Stress Level (1-10)</label>
+                            <input type="range" id="stressLevel" name="stressLevel" min="1" max="10" value="5" required>
+                            <div class="range-labels">
+                                <span>Low (1)</span>
+                                <span id="stressValue">5</span>
+                                <span>High (10)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-actions">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
+                        <button type="button" class="btn btn-primary" onclick="generateInsights()">Get Wellness Insights</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Step 4: Insights & Recommendations -->
+            <section id="step4" class="step">
+                <div class="step-header">
+                    <h2>Step 4: Your Wellness Insights</h2>
+                    <p>Based on your information, here are your personalized wellness insights.</p>
+                </div>
+
+                <div id="loadingState" class="loading-container">
+                    <div class="spinner"></div>
+                    <p>Analyzing your wellness data...</p>
+                </div>
+
+                <div id="insightsContent" class="insights-content" style="display: none;">
+                    <!-- Summary Section -->
+                    <div class="insight-summary">
+                        <h3>📊 Your Wellness Summary</h3>
+                        <div id="wellnessSummary" class="summary-content"></div>
+                    </div>
+
+                    <div class="insight-section">
+                        <h3>🔍 Key Wellness Patterns Identified</h3>
+                        <p class="section-description">Based on your symptoms and lifestyle, here are the main patterns we've identified:</p>
+                        <div id="wellnessPatterns" class="pattern-cards"></div>
+                    </div>
+
+                    <div class="insight-section">
+                        <h3>💡 Personalized Action Plan</h3>
+                        <p class="section-description">Here are specific steps you can take to improve your wellness:</p>
+                        <div id="recommendations" class="recommendation-list"></div>
+                    </div>
+
+                    <div class="insight-section medical-section">
+                        <h3>⚠️ When to See a Healthcare Professional</h3>
+                        <p class="section-description">While this tool provides general wellness guidance, you should consult a healthcare professional if:</p>
+                        <div id="medicalAdvice" class="medical-advice"></div>
+                    </div>
+
+                    <div class="insight-section">
+                        <h3>✨ Daily Wellness Tips</h3>
+                        <p class="section-description">Simple habits to incorporate into your daily routine:</p>
+                        <div id="wellnessTips" class="tips-list"></div>
+                    </div>
+                </div>
+
+                <div class="step-actions">
+                    <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
+                    <button type="button" class="btn btn-primary" onclick="startOver()">Start Over</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 MediAssist Wellness Companion. For general wellness guidance only.</p>
+        </footer>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
+
