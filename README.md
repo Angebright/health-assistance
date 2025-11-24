@@ -1,182 +1,117 @@
-# MediAssist Wellness Companion
+# Health Assistance
 
-An interactive web application designed to help users better understand their daily well-being by analyzing reported symptoms, lifestyle habits, and personal health information.
-
-## ⚠️ Important Disclaimer
-
-**MediAssist does not diagnose medical conditions.** It provides general wellness suggestions only. Users should consult qualified healthcare professionals for medical concerns.
-
-## Features
-
-### 1. Guided Symptom & Wellness Input
-- Symptoms grouped into intuitive categories (Fatigue, Headache, Dizziness, Body aches, Low energy)
-- Searchable symptom database
-- Visual feedback for selected symptoms
-- Easy symptom selection and removal
-
-### 2. Personal Health & Lifestyle Profile
-- Collects basic demographic information (age, gender, height, weight)
-- Allows users to add medical history tags
-- Tracks medications and allergies
-- Captures lifestyle elements including activity level, sleep patterns, and diet habits
-
-### 3. AI-Powered Wellness Insights
-- Uses an AI API to analyze provided information
-- Identifies possible wellness patterns such as stress, fatigue, dehydration, or lifestyle imbalance
-- Offers non-medical insights based on symptom-habit correlations
-
-### 4. Personalized Lifestyle Recommendations
-- Suggests habits to improve sleep, hydration, nutrition, and energy levels
-- Provides reminders and general wellness tips
-- Highlights situations where a medical professional should be consulted
-
-### 5. Responsive, Accessible Interface
-- Mobile-first user interface
-- Step-by-step workflow with clear progress indicators
-- Designed for easy use on all devices
-- Accessibility features included
-
-## Technologies Used
-
-- **HTML5** - Structure
-- **CSS3** - Styling (with modern design, gradients, and animations)
-- **JavaScript (ES6+)** - Functionality and interactivity
-- **AI API Integration** - For wellness insights (OpenAI compatible)
-
-## Getting Started
-
-### Basic Setup
-
-1. **Download/Clone** the project files
-2. **Open** `index.html` in a web browser
-3. **Start using** the application immediately!
-
-No build process or server setup required - it's a pure frontend application.
-
-### AI API Configuration (Optional)
-
-To enable AI-powered insights:
-
-1. Open `script.js`
-2. Find the `callAIWellnessAPI` function (around line 300)
-3. Replace `'YOUR_API_KEY_HERE'` with your OpenAI API key:
-   ```javascript
-   const API_KEY = 'your-actual-api-key-here';
-   ```
-
-**Note:** If no API key is configured, the application will automatically use intelligent rule-based fallback insights that analyze your data locally.
-
-### Using the Application
-
-1. **Step 1: Select Symptoms**
-   - Browse or search for symptoms
-   - Click to select/deselect symptoms
-   - View selected symptoms at the bottom
-
-2. **Step 2: Health Profile**
-   - Fill in basic information (age, gender, height, weight)
-   - Add medical history, medications, and allergies (press Enter or comma to add tags)
-
-3. **Step 3: Lifestyle Information**
-   - Select activity level
-   - Enter sleep patterns and quality
-   - Choose diet type and water intake
-   - Set stress level using the slider
-
-4. **Step 4: View Insights**
-   - Click "Get Wellness Insights" to analyze your data
-   - Review identified wellness patterns
-   - Read personalized recommendations
-   - Check when to consult healthcare professionals
-   - Browse wellness tips
-
-## File Structure
-
-```
-.
-├── index.html      # Main HTML structure
-├── styles.css      # All styling and responsive design
-├── script.js       # Application logic and functionality
-└── README.md       # This file
-```
-
-## Browser Compatibility
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## Features in Detail
-
-### Symptom Selection
-- 30+ common symptoms available
-- Real-time search filtering
-- Visual selection indicators
-- Easy removal of selected symptoms
-
-### Form Validation
-- Required field validation
-- Number range validation
-- Form navigation with data persistence
-
-### Progress Tracking
-- Visual progress indicator
-- Step completion tracking
-- Clear navigation between steps
-
-### Responsive Design
-- Mobile-first approach
-- Adapts to all screen sizes
-- Touch-friendly interface
-- Optimized for tablets and desktops
-
-## Customization
-
-### Changing Colors
-Edit the CSS variables in `styles.css`:
-```css
-:root {
-    --primary-color: #4A90E2;
-    --secondary-color: #50C878;
-    --accent-color: #FF6B6B;
-    /* ... */
-}
-```
-
-### Adding Symptoms
-Edit the `symptoms` array in `script.js`:
-```javascript
-const symptoms = [
-    'Your Symptom 1',
-    'Your Symptom 2',
-    // ...
-];
-```
-
-## Privacy & Security
-
-- **All data processing happens locally** in your browser
-- **No data is sent to external servers** unless you configure an AI API
-- **No user data is stored** - everything is session-based
-- **No cookies or tracking** used
-
-## Support
-
-For issues or questions:
-1. Check that all files are in the same directory
-2. Ensure JavaScript is enabled in your browser
-3. Check browser console for any error messages
-
-## License
-
-This project is provided as-is for educational and personal use.
+## Table of Contents
+1. Overview
+2. Core Features
+3. Demo
+4. Technologies Used
+5. API Integration
+6. Local Development Setup
+7. Deployment Setup
+8. Challenges & Solutions
+9. Credits & Acknowledgments
 
 ---
 
-**Remember:** This tool provides general wellness guidance only. Always consult qualified healthcare professionals for medical concerns.
+## 1. Overview
+Health assistance  is an interactive web application designed to help users better understand their daily well-being by analyzing reported symptoms, lifestyle habits, and personal health information.
 
+Instead of offering medical diagnoses, the tool provides general wellness insights, lifestyle recommendations, and gentle guidance for improving overall health.
+
+
+## 2. Core Features
+
+### 2.1 Guided Symptom & Wellness Input
+* Symptoms grouped into intuitive categories (e.g., **cold**, **Headache**, **Dizziness**, **Body pain**, **cough**).
+* Searchable symptom and wellness factor database.
+* Visual feedback for selected symptoms.
+
+### 2.2 Personal Health & Lifestyle Profile
+* Collects basic demographic information (**age, gender, height, weight**).
+* Allows users to add medical history tags.
+* Tracks medications and allergies.
+* Captures lifestyle elements including **activity level, sleep patterns, and diet habits**.
+
+### 2.3 AI-Powered Wellness Insights
+* Uses an **External AI API** to analyze provided information.
+* Identifies possible wellness patterns such as **stress, fatigue, dehydration, or lifestyle imbalance**.
+* Offers **non-medical insights** based on symptom-habit correlations.
+
+### 2.4 Personalized Lifestyle Recommendations
+* Suggests habits to improve **sleep, hydration, nutrition, and energy levels**.
+* Provides reminders and general wellness tips.
+* Highlights situations where a **medical professional should be consulted**.
+
+### 2.5 Responsive, Accessible Interface
+* **Mobile-first** user interface.
+* Step-by-step workflow with clear progress indicators.
+* Designed for easy use on all devices.
+
+
+## 3. Demo
+| Item | Link |
+| :--- | :--- |
+| **Demo Video** | [demo link](demolink) |
+| **Live Application** | [https://www.4ng3.tech](https://www.4ng3.tech) |
+
+
+## 4. Technologies Used
+* **Frontend:** **HTML** (structure), **CSS** (styling), **JavaScript** (functionality)
+* **API Usage:** External AI API for processing wellness and symptom data from [https://rapidapi.com/categories](https://rapidapi.com/bilgisamapi-api2/api/ai-medical-diagnosis-api-symptoms-to-results/playground)
+* **Deployment:** Hosted on **Nginx** servers and **HAProxy** used for load balancing.
+
+
+## 5. API Integration
+The application communicates with an AI-powered API (via **RapidAPI**) to process user inputs and generate wellness-oriented analysis.
+
+Instead of diagnosing diseases, the API is used to interpret symptoms and lifestyle patterns, returning insights related to:
+* Possible **stress indicators**.
+* **Hydration** or **fatigue** patterns.
+* **Lifestyle-related** wellness trends.
+* General **non-medical recommendations**.
+
+**API Documentation:** [https://rapidapi.com/bilgisamapi-api2/api/ai-medical-diagnosis-api-symptoms-to-results](https://rapidapi.com/bilgisamapi-api2/api/ai-medical-diagnosis-api-symptoms-to-results)
+
+
+## 6. Local Development Setup
+This is a fully **frontend-based** application.
+
+##### Step 1. Clone the Repository
+```bash
+git clone https://github.com/Angebright/health-assistance.git
+cd health-assistance
+```
+##### Step 2. Run the Application
+* Open **`index.html`** in any browser.
+* No backend setup required.
+
+
+## 7. Deployment Setup
+
+### 7.1 Prerequisites
+Two web servers:
+* **Web-01** and **Web-02**: 
+* **Load Balancer (lb-01)**: Runs **HAProxy**.
+    * Configured at `/etc/haproxy/haproxy.cfg`.
+    * Distributes incoming traffic between the two web servers.
+
+### 7.2 Domain
+A domain used, was created from DotTech domain where I used to link up with the IP_Address so if you vist my domain you will get the same by visiting via IP_Address.
+
+### 7.3 SSL Certificate
+From lb-01 , I created a certificate using certbot, issued by Letsencrypt and signed by it. So, it can be secure as it is.
+
+
+## 8. Challenges & Solutions
+
+| Challenge | Solution |
+| :--- | :--- |
+| **API Rate Limitation** | The Free API tier has strict request limits. **Solution:** Considered upgrading to a higher-tiscalability. |
+
+
+## 9. Credits & Acknowledgments
+* AI-based wellness analysis powered by an API available on **RapidAPI**.
+* Full documentation available at: [https://rapidapi.com/bilgisamapi-api2/api/ai-medical-diagnosis-api-symptoms-to-results](https://rapidapi.com/bilgisamapi-api2/api/ai-medical-diagnosis-api-symptoms-to-results)Visit the link above for it's documentation.
 
 
 
