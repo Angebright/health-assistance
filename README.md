@@ -51,7 +51,7 @@ Instead of offering medical diagnoses, the tool provides general wellness insigh
 ## 3. Demo
 | Item | Link |
 | :--- | :--- |
-| **Demo Video** | [demo link](demolink) |
+| **Demo Video** | [demo link](https://youtu.be/AWQ5eHLWx0c) |
 | **Live Application** | [https://www.4ng3.tech](https://www.4ng3.tech) |
 
 
@@ -113,6 +113,7 @@ From lb-01 , I created a certificate using certbot, issued by Letsencrypt and si
 ## 9. Credits & Acknowledgments
 * AI-based wellness analysis powered by an API available on **RapidAPI**.
 * Full documentation available at: [https://rapidapi.com/bilgisamapi-api2/api/ai-medical-diagnosis-api-symptoms-to-results](https://rapidapi.com/bilgisamapi-api2/api/ai-medical-diagnosis-api-symptoms-to-results)Visit the link above for it's documentation.
+
 
 
 
